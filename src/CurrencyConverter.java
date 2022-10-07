@@ -1,3 +1,4 @@
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
@@ -10,16 +11,17 @@ public class CurrencyConverter {
        Chinese Renminbi (RMB)
      */
 
-    public static void currencyCalculator (String[] args) {
+    public static void main (String[] args) {
 
-        double usd;
-        double eur;
-        double jpy;
-        double cad;
-        double cny;
+        float usd;
+        float eur;
+        float jpy;
+        float hkd;
+        float cny;
+
 
         //decimal object
-        DecimalFormat c = new DecimalFormat("#,##");
+        DecimalFormat c = new DecimalFormat("#,##0.00");
 
         //new instance of Scanner
         Scanner sc = new Scanner(System.in);
@@ -29,32 +31,27 @@ public class CurrencyConverter {
         float amount = sc.nextFloat();
 
         System.out.println("Which Currency would you like to convert that amount too?");
-        System.out.println("1.US Dollar (USD) /2.Euro (EUR) /3.Japanese Yen (JPY) /4.Hong Kong Dollar (CAD) /5.Chinese Yuan (CNY) ");
+        System.out.println("1.US Dollar (USD) 2.Euro (EUR) 3.Japanese Yen (JPY) 4.Hong Kong Dollar (HKD) 5.Chinese Yuan (CNY) ");
         int currency = sc.nextInt();
 
         //GBP to other currencies based on input
         if (currency == 1) {
-            usd = amount * 1.3;
-            System.out.println("Your"+" has converted into "+ usd + "US Dollars");
+            usd = amount * 1.1197f;
+            System.out.println("Your"+" has converted into $"+ c.format(usd) + " US Dollars");
         } else if (currency == 2) {
-            eur = amount * 1.15;
-            System.out.println("Your"+" has converted into "+ eur + "Euros");
+            eur = amount * 1.1431f;
+            System.out.println("Your"+" has converted into €"+ c.format(eur) + " Euros");
         } else if (currency == 3) {
-            jpy = amount * 163.73;
-            System.out.println("Your"+" has converted into "+ jpy + "Japanese Yen");
+            jpy = amount * 162.2319f;
+            System.out.println("Your"+" has converted into ¥"+ c.format(jpy) + " Japanese Yen");
         } else if (currency == 4) {
-            cad = amount * 8.88;
-            System.out.println("Your"+" has converted into "+ cad + "Hong Kong Dollar");
+            hkd = amount * 8.7847f;
+            System.out.println("Your"+" has converted into $"+ c.format(hkd) + " Hong Kong Dollar");
         } else if (currency == 5) {
-            cny = amount * 8.06;
-            System.out.println("Your"+" has converted into "+ cny + "Chinese Yuan");
+            cny = amount * 7.9647f;
+            System.out.println("Your"+" has converted into ¥"+ c.format(cny) + " Chinese Yuan");
         }
 
         System.out.println("");
-
-
-
-
     }
-
 }
